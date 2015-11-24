@@ -1,6 +1,5 @@
 /**
- * 最长不降子序列
- * 
+ *
  * @author Administrator
  *
  */
