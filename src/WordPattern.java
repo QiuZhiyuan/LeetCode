@@ -12,8 +12,8 @@ public class WordPattern {
             if(strs.length != pats.length || pattern.equals("")){
             return false;
         }
-        Map<String, String> map1 = new HashMap<>();
-        Map<String,String> map2 = new HashMap<>();
+        Map<String, String> map1 = new HashMap<String, String>();
+        Map<String,String> map2 = new HashMap<String, String>();
 
         for (int i = 0; i < strs.length; i++) {
 //            System.out.println("pat:"+pats[i]+" str:"+strs[i]);

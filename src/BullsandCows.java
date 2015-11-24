@@ -1,4 +1,11 @@
-
+/**
+ * 猜数字游戏
+ * 假定一组数"1234"
+ * 猜测"3254"
+ * 返回"1A2B"
+ * 即有一个数位置正确，两个数位置错误
+ *
+ */
 public class BullsandCows {
 	public String getHint(String secret, String guess) {
 		System.out.println(secret+" "+guess);
