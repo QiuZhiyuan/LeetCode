@@ -1,3 +1,5 @@
+import java.util.HashSet;
+import java.util.TreeSet;
 
 public class MainFunction {
 
@@ -8,16 +10,33 @@ public class MainFunction {
 	}
 	
 	private void start(){
-		ValidNumber vn = new ValidNumber();
-		vn.isNumber("2e10");
-		vn.isNumber(" 0.1");
-		vn.isNumber("1 a");
-		vn.isNumber("abc");
-		vn.isNumber("929323.32f");
-		vn.isNumber("-1.");
-		vn.isNumber("0x234");
-		vn.isNumber("959440.94f");
+		HashSet<String> hashSet = new HashSet<String>();
+//		hashSet.add("cat");
+//		hashSet.add("cats");
+//		hashSet.add("and");
+//		hashSet.add("sand");
+//		hashSet.add("dog");
+
+//		hashSet.add("a");
+//		hashSet.add("ab");
+//		hashSet.add("baa");
+//		hashSet.add("aab");
+
+		hashSet.add("a");
+		hashSet.add("b");
+
+		WordBreakII wb = new WordBreakII();
+//		wb.wordBreak("catsanddog",hashSet);
+//		System.out.println(wb.wordBreak("aaabaa",hashSet));
+		System.out.println(wb.wordBreak("abaaba",hashSet));
 	}
 
+//	["a b a a b a ","a b a ab a ","a b aa b a ",,"a ba a b a ","a ba a ba "]
+//	["a b a a b a","a b a ab a","a b aa b a",,"a ba a b a","a ba a ba",]
+//	["a b a a b a","a b a a ba","a b a ab a","a b aa b a","a b aa ba","a ba a b a","a ba a ba","a ba ab a","ab a a b a","ab a a ba","ab a ab a","ab aa b a","ab aa ba"]
+//	["a b a a b a","a b a a ba","a b a ab a","a b aa b a","a b aa ba","a ba a b a","a ba a ba","a ba ab a","ab a a b a","ab a a ba","ab a ab a","ab aa b a","ab aa ba"]
+//
+//			["a b a a b a","a b a a ba","a b a ab a","a b a aba","a b aa b a","a b aa ba","a ba a b a","a ba a ba","a ba ab a","a ba aba","a baa b a","a baa ba","ab a a b a","ab a a ba","ab a ab a","ab a aba","ab aa b a","ab aa ba","aba a b a","aba a ba","aba ab a","aba aba"]
+//			["a b a a b a","a b a a ba","a b a ab a","a b a aba","a b aa b a","a b aa ba","a ba a b a","a ba a ba","a ba ab a","a ba aba","a baa b a","a baa ba","ab a a b a","ab a a ba","ab a ab a","ab a aba","ab aa b a","ab aa ba","aba a b a","aba a ba","aba ab a","aba aba"]
 
 }
