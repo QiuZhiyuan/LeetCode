@@ -74,7 +74,7 @@ public class WordBreakII {
     }
 
     private void print(String str) {
-//        System.out.println(str);
+        System.out.println(str);
     }
 
 
