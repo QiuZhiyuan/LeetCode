@@ -18,13 +18,16 @@ public class MainFunction {
 //		hashSet.add("dog");
 
 		hashSet.add("a");
+		hashSet.add("b");
+		hashSet.add("bb");
 		hashSet.add("ab");
 		hashSet.add("baa");
 		hashSet.add("aab");
 
-		WordBreakII wb = new WordBreakII();
+		WordBreakII_DP wb = new WordBreakII_DP();
 //		wb.wordBreak("catsanddog",hashSet);
-		System.out.println(wb.wordBreak("aaabaa",hashSet));
+		wb.wordBreak("aabbbaa",hashSet);
+//		System.out.println(wb.wordBreak("ababbabababababaababbaabbababaababababababababaabababababaababababbababaaaaababbababababababaabbabab",hashSet));
 	}
 
 

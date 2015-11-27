@@ -21,6 +21,7 @@ public class WordBreakII {
 //        for(String str:result){
 //            print("result:" + str);
 //        }
+        print(sum+"");
         return result;
     }
 
@@ -32,7 +33,10 @@ public class WordBreakII {
 
     private Set<String> wordDict;
 
+    private int sum = 0;
+
     public void search(int begin, int end) {
+        sum++;
         print(begin+" "+end);
         if (begin == s.length()) {
             return;
