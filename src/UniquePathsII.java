@@ -1,12 +1,12 @@
 /**
- * Created by qiuzhiyuan on 2015/12/1.
+ * Created by Administrator on 2015/12/1.
  */
-public class UniquePaths {
+public class UniquePathsII {
     private long[][] map;
     private int m,n;
-    public int uniquePaths(int m, int n) {
-        this.m = m;
-        this.n = n;
+    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+        this.m = obstacleGrid.length;
+        this.n = obstacleGrid[0].length;
 
         map = new long[m][n];
 
@@ -18,25 +18,25 @@ public class UniquePaths {
 
         map[0][0] = 1;
 
-        for(int sum = 1;sum<m+n;sum++){
+        for(int j = 0;j<m;j++){
             for(int i = 0;i<n;i++){
-                int x = sum -i;
-                if(x<0|x>=m){
+                int x = j;
+                int y = i;
+                if(obstacleGrid[x][y] == 1){
                     continue;
                 }
-                int y = i;
 //                System.out.println("x:"+x+" y:"+y);
                 move(x,y,x-1,y);
                 move(x,y,x,y-1);
             }
         }
 //        System.out.println((int)map[m-1][n-1]);
-        for(int i=0;i<m;i++){
-            for (int j=0;j<n;j++){
-                System.out.print(map[i][j]+" ");
-            }
-            System.out.println();
-        }
+//        for(int i=0;i<m;i++){
+//            for (int j=0;j<n;j++){
+//                System.out.print(map[i][j]+" ");
+//            }
+//            System.out.println();
+//        }
         return (int) map[m-1][n-1];
     }
 
@@ -45,6 +45,5 @@ public class UniquePaths {
             return;
         }
         map[x][y] = map[tx][ty]+map[x][y];
-
     }
 }

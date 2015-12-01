@@ -10,8 +10,13 @@ public class MainFunction {
 	}
 
 	private void uniquePaths(){
-		UniquePaths up = new UniquePaths();
-		System.out.println(up.uniquePaths(23,43));
+//		UniquePaths up = new UniquePaths();
+//		System.out.println(up.uniquePaths(10,10));
+		UniquePathsII up = new UniquePathsII();
+
+		int[][] gird = new int[3][4];
+		gird[1][1] = 1;
+		up.uniquePathsWithObstacles(gird);
 	}
 	
 	private void WordBreak(){
