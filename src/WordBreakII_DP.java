@@ -3,65 +3,76 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by Administrator on 2015/11/27.
+ * Created by qiuzhiyuan on 2015/11/27.
  */
 public class WordBreakII_DP {
     private int l;
-    private String[][] map;
+    private int[][] map;
     private List<String> result;
     private String str;
-    private List<String> wordList;
+    private int[] space;
+
 
     public List<String> wordBreak(String s, Set<String> wordDict) {
 
         l = s.length();
         str = s;
-        map = new String[l + 1][l + 1];
+        map = new int[l][l + 1];
         result = new ArrayList<String>();
-        wordList = new ArrayList<String>();
+        for (int i = 0; i < l; i++) {
+            for (int j = 0; j < l - i; j++) {
+                map[i][j] = 0;
+            }
+        }
 
         for (int i = 0; i < l; i++) {
-            for (int j = i + 1; j <= l; j++) {
+            int top = 0;
+            for (int j = i + 1; j < l + 1; j++) {
                 String str = s.substring(i, j);
                 if (wordDict.contains(str)) {
-                    map[i][j] = str;
-                } else {
-                    map[i][j] = null;
+                    map[i][top] = j;
+                    System.out.print(map[i][top] + "+" + str + " ");
+                    top++;
                 }
-                System.out.print(map[i][j] + " ");
             }
             System.out.println();
         }
-        search(0);
+
+        space = new int[l];
+        search(0, 0);
+
         System.out.println(result.toString());
 
 
-        return null;
+        return result;
 
     }
 
-    private void search(int x) {
-        for (int i = x + 1; i <= l; i++) {
-            if(map[x][i] != null){
-                wordList.add(map[x][i]);
-                if(i == l){
-                    StringBuilder itemList = new StringBuilder();
-                    for (int k=0;k<wordList.size();k++) {
-                        String item = wordList.get(k);
-                        itemList.append(item);
-                        if (k < wordList.size() - 1) {
-                            itemList.append(" ");
-                        }
-                    }
-                    result.add(itemList.toString());
+    private void search(int root, int top) {
+        for (int j = 0; j < l; j++) {
+            int sp = map[root][j];
+            if (sp != 0) {
+                if (sp == l) {
+                    addToResult(top);
                 } else {
-                    search(i);
+                    space[top] = sp;
+                    search(sp, top + 1);
                 }
-                if(wordList.size() >0){
-                    wordList.remove(wordList.size()-1);
-                }
+            } else {
+                break;
             }
         }
     }
 
+    private void addToResult(int top) {
+        StringBuilder sb = new StringBuilder(str);
+        for (int i = 0; i < top; i++) {
+            sb.insert(space[i] + i, ' ');
+        }
+        result.add(sb.toString());
+    }
+
+    private void print(String info) {
+        System.out.print(info);
+    }
 }
