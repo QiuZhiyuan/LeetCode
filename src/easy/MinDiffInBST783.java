@@ -1,7 +1,5 @@
 package easy;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
 public class MinDiffInBST783 {
     //      Definition for a binary tree node.
     public class TreeNode {

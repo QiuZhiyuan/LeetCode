@@ -1,7 +1,5 @@
 package easy;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
 import java.util.Arrays;
 
 public class Shuffle1470 {

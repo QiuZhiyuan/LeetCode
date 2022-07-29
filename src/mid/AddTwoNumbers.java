@@ -1,7 +1,5 @@
 package mid;
 
-import com.sun.istack.internal.Nullable;
-
 public class AddTwoNumbers {
 
     public static void main(String args[]) {

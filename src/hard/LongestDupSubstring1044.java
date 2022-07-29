@@ -1,7 +1,5 @@
 package hard;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
 import java.util.*;
 
 public class LongestDupSubstring1044 {

@@ -1,7 +1,5 @@
 package easy;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
 public class HammingWeight191 {
 
     public static void main(String[] args) {

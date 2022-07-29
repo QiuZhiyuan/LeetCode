@@ -1,7 +1,6 @@
 package mid;
 
 import common.TreeNode;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 public class IsValidBST98 {
     public boolean isValidBST(TreeNode root) {
