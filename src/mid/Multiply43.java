@@ -1,17 +1,49 @@
 package mid;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 
 public class Multiply43 {
 
     public static void main(String args[]) {
         Multiply43 multiply43 = new Multiply43();
-        long num1 = 34452145214663694L;
-        long num2 = 0L;
+        long num1 = 1211313130L;
+        long num2 = 23131312L;
         System.out.println(multiply43.sum(String.valueOf(num1), String.valueOf(num2)));
         System.out.println(num1 + num2);
         System.out.println(Math.pow(10, 5));
         System.out.println(multiply43.multiply(String.valueOf(num1), String.valueOf(num2)));
+        System.out.println(multiply43.multiply2(String.valueOf(num1), String.valueOf(num2)));
+    }
+
+    public String multiply2(String num1, String num2) {
+        int[] result = new int[num1.length() + num2.length()];
+        Arrays.fill(result, (char) 0);
+        for (int i = num1.length() - 1; i >= 0; i--) {
+            int n1 = num1.charAt(i) - 48;
+            for (int j = num2.length() - 1; j >= 0; j--) {
+                int n2 = num2.charAt(j) - 48;
+                int k = n1 * n2;
+                int p1 = i + j + 1;
+                int p2 = i + j;
+                result[p1] += k % 10;
+                result[p2] += k / 10;
+                if (result[p1] >= 10) {
+                    result[p2] += result[p1] / 10;
+                    result[p1] = result[p1] % 10;
+                }
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int j : result) {
+            if (!(sb.length() == 0 && j == 0)) {
+                sb.append(j);
+            }
+        }
+        if (sb.length() == 0) {
+            sb.append(0);
+        }
+        return sb.toString();
     }
 
     public String multiply(String num1, String num2) {
@@ -27,7 +59,7 @@ public class Multiply43 {
                     continue;
                 }
                 int p = num1.length() - 1 - i + (num2.length() - 1 - j);
-                System.out.println("params:" + n1 + " " + n2 + " " + p);
+//                System.out.println("params:" + n1 + " " + n2 + " " + p);
                 String k = n1 * n2 + "0".repeat(Math.max(0, p));
                 result = sum(result, k);
             }
