@@ -7,7 +7,9 @@ import java.util.*;
 public class FindSubstring30 {
     public static void main(String args[]) {
         FindSubstring30 findSubstring30 = new FindSubstring30();
-        Tools.println(findSubstring30.findSubstring("worddw", new String[]{"word"}));
+        long startTime = System.currentTimeMillis();
+        Tools.println(findSubstring30.findSubstring("wordgoodgoodgoodbestword", new String[]{"word","good","best","good"}));
+        Tools.println(System.currentTimeMillis() - startTime);
     }
 
     public List<Integer> findSubstring(String s, String[] words) {
@@ -19,12 +21,11 @@ public class FindSubstring30 {
         for (String word : words) {
             hashMap.merge(word, 1, Integer::sum);
         }
-        HashMap<String, Integer> tempHashMap = new HashMap<>();
+        HashMap<String, Integer> tempHashMap = new HashMap<>(hashMap);
         int l = words[0].length();
         for (int i = 0; i + l <= s.length(); i++) {
             String start = s.substring(i, i + l);
             if (hashMap.containsKey(start)) {
-                tempHashMap.clear();
                 int flag = 0;
                 for (int j = 0; j < words.length; j++) {
                     int p = i + l * j;
@@ -33,14 +34,13 @@ public class FindSubstring30 {
                     }
                     String item = s.substring(p, p + l);
                     Integer value = hashMap.get(item);
-//                    Tools.println(item);
                     if (value != null && value > 0) {
-                        if (!tempHashMap.containsKey(item)) {
-                            tempHashMap.put(item, value);
+                        if (value == 1) {
+                            hashMap.remove(item);
+                        } else {
+                            hashMap.put(item, value - 1);
                         }
                         flag++;
-                        hashMap.put(item, value - 1);
-//                        Tools.println(hashMap);
                     } else {
                         break;
                     }
@@ -48,7 +48,6 @@ public class FindSubstring30 {
                 if (flag == words.length) {
                     result.add(i);
                 }
-//                Tools.println(tempHashMap, flag);
                 hashMap.putAll(tempHashMap);
             }
         }
