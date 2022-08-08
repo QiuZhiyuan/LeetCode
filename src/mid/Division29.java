@@ -1,4 +1,4 @@
-package common;
+package mid;
 
 /**
  * 给定两个整数，被除数dividend和除数divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。

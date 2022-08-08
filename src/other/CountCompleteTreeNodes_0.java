@@ -1,3 +1,7 @@
+package other;
+
+import common.TreeNode;
+
 /**
  * Created by qiuzhiyuan on 2015/12/2.
  * <p/>
@@ -24,7 +28,7 @@ public class CountCompleteTreeNodes_0 {
 
     }
 
-    private int move(TreeNode root,int path, int left, int right) {
+    private int move(TreeNode root, int path, int left, int right) {
         System.out.println("path:"+path+" left:"+left+" right:"+right);
         int mid = (left + right) / 2;
 
