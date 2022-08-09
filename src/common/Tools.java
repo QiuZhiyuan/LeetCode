@@ -29,4 +29,16 @@ public final class Tools {
         }
         System.out.println();
     }
+
+    public static void println(ListNode node) {
+        if (node == null) {
+            System.out.println("head=null");
+            return;
+        }
+        while (node != null) {
+            System.out.print(node.val + " ");
+            node = node.next;
+        }
+        System.out.println();
+    }
 }
