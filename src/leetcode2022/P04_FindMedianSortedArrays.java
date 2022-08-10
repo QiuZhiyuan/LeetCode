@@ -49,6 +49,7 @@ public class P04_FindMedianSortedArrays {
         Tools.println(test.findMedianSortedArrays(new int[]{5, 5, 5, 5}, new int[]{4, 4, 4}));
         Tools.println(test.findMedianSortedArrays(new int[]{5, 5}, new int[]{4, 4, 4}));
         Tools.println(test.findMedianSortedArrays(new int[]{1, 3, 5, 7, 9}, new int[]{2, 4, 6, 8}));
+        Tools.println(test.findMedianSortedArrays(new int[]{1, 3, 3, 5, 6, 7, 7}, new int[]{2, 3, 4, 5, 6, 7, 9}));
     }
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
@@ -57,12 +58,12 @@ public class P04_FindMedianSortedArrays {
         if (isOdd) {
             int p = 0;
             int mid = (nums1.length + nums2.length) / 2 + 1;
-            while (m+n < mid) {
-                while (m < nums1.length && m+n < mid && (n >= nums2.length || nums1[m] < nums2[n])) {
+            while (m + n < mid) {
+                while (m < nums1.length && m + n < mid && (n >= nums2.length || nums1[m] <= nums2[n])) {
                     p = nums1[m];
                     m++;
                 }
-                while (n < nums2.length && m+n < mid && (m >= nums1.length || nums2[n] < nums1[m])) {
+                while (n < nums2.length && m + n < mid && (m >= nums1.length || nums2[n] <= nums1[m])) {
                     p = nums2[n];
                     n++;
                 }
@@ -71,11 +72,10 @@ public class P04_FindMedianSortedArrays {
         } else {
             int mid = (nums1.length + nums2.length) / 2 - 1;
             while (m + n < mid) {
-
-                while (m < nums1.length && m + n < mid && (n >= nums2.length || nums1[m] < nums2[n])) {
+                while (m < nums1.length && m + n < mid && (n >= nums2.length || nums1[m] <= nums2[n])) {
                     m++;
                 }
-                while (n < nums1.length && m + n < mid && (m >= nums1.length || nums2[n] < nums1[m])) {
+                while (n < nums1.length && m + n < mid && (m >= nums1.length || nums2[n] <= nums1[m])) {
                     n++;
                 }
             }
