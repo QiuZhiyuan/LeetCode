@@ -40,8 +40,13 @@ public class P04_FindMedianSortedArrays {
         P04_FindMedianSortedArrays test = new P04_FindMedianSortedArrays();
         Tools.println(test.findMedianSortedArrays(new int[]{1, 2, 7, 9}, new int[]{3, 4, 8}));
         Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{3}));
+        Tools.println(test.findMedianSortedArrays(new int[]{}, new int[]{3}));
         Tools.println(test.findMedianSortedArrays(new int[]{1, 2}, new int[]{3}));
-        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{}));
+        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{0, 3}));
+        Tools.println(test.findMedianSortedArrays(new int[]{1, 10, 10}, new int[]{0, 3, 7, 9, 10}));
+        Tools.println(test.findMedianSortedArrays(new int[]{5, 5, 5}, new int[]{4, 4, 4}));
+        Tools.println(test.findMedianSortedArrays(new int[]{5, 5, 5, 5}, new int[]{4, 4, 4}));
+        Tools.println(test.findMedianSortedArrays(new int[]{5, 5}, new int[]{4, 4, 4}));
     }
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
@@ -63,7 +68,6 @@ public class P04_FindMedianSortedArrays {
                     n++;
                     k++;
                 }
-//                Tools.println(m, n, k, mid);
             }
             return p;
         } else {
@@ -85,7 +89,6 @@ public class P04_FindMedianSortedArrays {
                     }
                 }
             }
-//            Tools.println(m, n, mid);
             if (m < nums1.length && n < nums2.length) {
                 return (nums1[m] + nums2[n]) / 2d;
             } else if (m < nums1.length) {
@@ -94,7 +97,6 @@ public class P04_FindMedianSortedArrays {
                 return (nums2[n - 1] + nums2[n]) / 2d;
             }
         }
-
         return 0;
     }
 }
