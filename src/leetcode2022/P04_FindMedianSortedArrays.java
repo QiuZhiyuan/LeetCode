@@ -56,18 +56,15 @@ public class P04_FindMedianSortedArrays {
         int m = 0, n = 0;
         if (isOdd) {
             int p = 0;
-            int k = 0;
             int mid = (nums1.length + nums2.length) / 2 + 1;
-            while (k < mid) {
-                while (m < nums1.length && k < mid && (n >= nums2.length || nums1[m] < nums2[n])) {
+            while (m+n < mid) {
+                while (m < nums1.length && m+n < mid && (n >= nums2.length || nums1[m] < nums2[n])) {
                     p = nums1[m];
                     m++;
-                    k++;
                 }
-                while (n < nums2.length && k < mid && (m >= nums1.length || nums2[n] < nums1[m])) {
+                while (n < nums2.length && m+n < mid && (m >= nums1.length || nums2[n] < nums1[m])) {
                     p = nums2[n];
                     n++;
-                    k++;
                 }
             }
             return p;
