@@ -53,10 +53,9 @@ public class P04_FindMedianSortedArrays {
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         final boolean isOdd = (nums1.length + nums2.length) % 2 == 1;
-        final int MIN = -1000001;
         int m = 0, n = 0;
         if (isOdd) {
-            int p = MIN;
+            int p = 0;
             int k = 0;
             int mid = (nums1.length + nums2.length) / 2 + 1;
             while (k < mid) {
