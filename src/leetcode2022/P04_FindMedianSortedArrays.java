@@ -38,12 +38,16 @@ public class P04_FindMedianSortedArrays {
 
     public static void main(String args[]) {
         P04_FindMedianSortedArrays test = new P04_FindMedianSortedArrays();
-        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{3}));
-        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{}));
-        Tools.println(test.findMedianSortedArrays(new int[]{}, new int[]{3}));
-        Tools.println(test.findMedianSortedArrays(new int[]{1, 2}, new int[]{3}));
-        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{0, 3}));
-        Tools.println(test.findMedianSortedArrays(new int[]{1, 2, 7, 9}, new int[]{3, 4, 8}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{3}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{}, new int[]{3}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{}, new int[]{3, 4}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{3, 4}, new int[]{}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{3, 4, 5}, new int[]{}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{}, new int[]{3, 4, 5}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{1, 2}, new int[]{3}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{0, 3}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{1, 2, 7, 9}, new int[]{3, 4, 8}));
         Tools.println(test.findMedianSortedArrays(new int[]{1, 10, 10}, new int[]{0, 3, 7, 9, 10}));
         Tools.println(test.findMedianSortedArrays(new int[]{5, 5, 5}, new int[]{4, 4, 4}));
         Tools.println(test.findMedianSortedArrays(new int[]{5, 5, 5, 5}, new int[]{4, 4, 4}));
@@ -79,12 +83,13 @@ public class P04_FindMedianSortedArrays {
                     n++;
                 }
             }
+            Tools.println(m, n, mid);
             if (m < nums1.length && n < nums2.length) {
                 return (nums1[m] + nums2[n]) / 2d;
-            } else if (m < nums1.length) {
-                return (nums1[m - 1] + nums1[m]) / 2d;
-            } else if (n < nums2.length) {
-                return (nums2[n - 1] + nums2[n]) / 2d;
+            } else if (m < nums1.length - 1) {
+                return (nums1[m] + nums1[m + 1]) / 2d;
+            } else if (n < nums2.length - 1) {
+                return (nums2[n] + nums2[n + 1]) / 2d;
             }
         }
         return 0;
