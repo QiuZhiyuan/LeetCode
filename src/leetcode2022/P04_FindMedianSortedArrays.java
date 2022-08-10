@@ -38,21 +38,23 @@ public class P04_FindMedianSortedArrays {
 
     public static void main(String args[]) {
         P04_FindMedianSortedArrays test = new P04_FindMedianSortedArrays();
-        Tools.println(test.findMedianSortedArrays(new int[]{1, 2, 7, 9}, new int[]{3, 4, 8}));
         Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{3}));
+        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{}));
         Tools.println(test.findMedianSortedArrays(new int[]{}, new int[]{3}));
         Tools.println(test.findMedianSortedArrays(new int[]{1, 2}, new int[]{3}));
         Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{0, 3}));
+        Tools.println(test.findMedianSortedArrays(new int[]{1, 2, 7, 9}, new int[]{3, 4, 8}));
         Tools.println(test.findMedianSortedArrays(new int[]{1, 10, 10}, new int[]{0, 3, 7, 9, 10}));
         Tools.println(test.findMedianSortedArrays(new int[]{5, 5, 5}, new int[]{4, 4, 4}));
         Tools.println(test.findMedianSortedArrays(new int[]{5, 5, 5, 5}, new int[]{4, 4, 4}));
         Tools.println(test.findMedianSortedArrays(new int[]{5, 5}, new int[]{4, 4, 4}));
+        Tools.println(test.findMedianSortedArrays(new int[]{1, 3, 5, 7, 9}, new int[]{2, 4, 6, 8}));
     }
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         final boolean isOdd = (nums1.length + nums2.length) % 2 == 1;
         final int MIN = -1000001;
-        int m = 0, n = 0, n1 = MIN, n2 = MIN;
+        int m = 0, n = 0;
         if (isOdd) {
             int p = MIN;
             int k = 0;
@@ -73,20 +75,12 @@ public class P04_FindMedianSortedArrays {
         } else {
             int mid = (nums1.length + nums2.length) / 2 - 1;
             while (m + n < mid) {
-                if (m < nums1.length) {
-                    n1 = nums1[m];
+
+                while (m < nums1.length && m + n < mid && (n >= nums2.length || nums1[m] < nums2[n])) {
+                    m++;
                 }
-                if (n < nums2.length) {
-                    n2 = nums2[n];
-                }
-                if (n1 < n2) {
-                    if (m < nums1.length) {
-                        m++;
-                    }
-                } else {
-                    if (n < nums2.length) {
-                        n++;
-                    }
+                while (n < nums1.length && m + n < mid && (m >= nums1.length || nums2[n] < nums1[m])) {
+                    n++;
                 }
             }
             if (m < nums1.length && n < nums2.length) {
