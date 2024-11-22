@@ -41,15 +41,16 @@ public class P04_FindMedianSortedArrays {
 
     public static void main(String args[]) {
         P04_FindMedianSortedArrays test = new P04_FindMedianSortedArrays();
-        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{3}));
-        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{}));
-        Tools.println(test.findMedianSortedArrays(new int[]{}, new int[]{3}));
-        Tools.println(test.findMedianSortedArrays(new int[]{}, new int[]{3, 4}));
-        Tools.println(test.findMedianSortedArrays(new int[]{3, 4}, new int[]{}));
-        Tools.println(test.findMedianSortedArrays(new int[]{3, 4, 5}, new int[]{}));
-        Tools.println(test.findMedianSortedArrays(new int[]{}, new int[]{3, 4, 5}));
-        Tools.println(test.findMedianSortedArrays(new int[]{1, 2}, new int[]{3}));
-        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{0, 3}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{3}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{}, new int[]{3}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{}, new int[]{3, 4}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{3, 4}, new int[]{}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{3, 4, 5}, new int[]{}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{}, new int[]{3, 4, 5}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{1, 2}, new int[]{3}));
+//        Tools.println(test.findMedianSortedArrays(new int[]{1}, new int[]{0, 3}));
+        Tools.println(test.findMedianSortedArrays(new int[]{1, 2}, new int[]{0, 3})); // TODO e
         Tools.println(test.findMedianSortedArrays(new int[]{1, 2, 7, 9}, new int[]{3, 4, 8}));
         Tools.println(test.findMedianSortedArrays(new int[]{1, 2, 10, 10}, new int[]{0, 3, 7, 9, 10}));
         Tools.println(test.findMedianSortedArrays(new int[]{5, 5, 5}, new int[]{4, 4, 4}));
