@@ -9,12 +9,7 @@ public class PreorderTraversal144 {
 
     public static void main(String args[]) {
         System.out.println("Hello World");
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(4);
-        root.left.right = new TreeNode(5);
-        root.right = new TreeNode(2);
-        root.right.left = new TreeNode(3);
-        System.out.println(new PreorderTraversal144().preorderTraversal(root));
+        System.out.println(new PreorderTraversal144().preorderTraversal(TreeNode.createBinaryTree(new int[]{1, 2, 3, 0, 4, 6, 5}, 0)));
     }
 
     public List<Integer> preorderTraversal(TreeNode root) {
