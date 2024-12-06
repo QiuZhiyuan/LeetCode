@@ -25,4 +25,18 @@ public class ListNode {
         }
         return head;
     }
+
+    public void println() {
+        ListNode p = this;
+        while (p != null) {
+            System.out.print(p.val + " ");
+            p = p.next;
+        }
+        System.out.println();
+    }
+
+    @Override
+    public String toString() {
+        return "ListNote val:"+val+" hash:"+hashCode();
+    }
 }
